@@ -6,7 +6,7 @@ const cors = require("cors");
 const dotenv = require('dotenv');
 
 const coreoptions = {
-    origin:'http://localhost:3000',
+    origin:process.env.FRONTEND_URL,
     credentials: true,  // Allow cookies and other credentials to be sent
 }
 app.use(cors(coreoptions));
