@@ -5,7 +5,11 @@ const Ticket = require('./schema');
 const cors = require("cors");
 const dotenv = require('dotenv');
 
-app.use(cors());
+const coreoptions = {
+    origin:'http://localhost:3000',
+    credentials: true,  // Allow cookies and other credentials to be sent
+}
+app.use(cors(coreoptions));
 //Middleware for parsing Json
 app.use(express.json());
 
@@ -16,6 +20,6 @@ app.use(express.urlencoded({ extended: false }))
 // creating an api and seperating it.
 app.use("/api", require("./routes"));
 
-app.listen(8080,()=>{
-    console.log("App listening to port 8080")
+app.listen(8081,()=>{
+    console.log("App listening to port 8081")
 });
